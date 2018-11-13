@@ -5,15 +5,41 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Projects extends React.Component {
+
+class ProjectIcon extends React.Component {
   render() {
-    // TODO: loop over project listing data
+    let className = this.props.icon + "-icon";
+    return (
+      <div className={className}></div>
+    );
+  }
+}
+
+class ProjectItem extends React.Component {
+  render() {
+    return (
+      <div className="project-item">
+        <div className="title">{this.props.data.title}</div>
+        <div className="subtitle">{this.props.data.subtitle}</div>
+        <ProjectIcon icon={this.props.data.type} />
+      </div>
+    )
+  }
+}
+
+class Projects extends React.Component {
+  generateProjectItems() {
+    let list = [];
+    for (let item of this.props.projects) {
+      list.push(<ProjectItem data={item} />)
+    }
+    return list;
+  }
+
+  render() {
     return (
       <div className="projects">
-        <div className="project-item">One</div>
-        <div className="project-item">Two</div>
-        <div className="project-item">Three</div>
-        <div className="project-item">Four</div>
+        {this.generateProjectItems()}
       </div>
     )
   }
@@ -21,11 +47,25 @@ class Projects extends React.Component {
 
 
 class ProjectListing extends React.Component {
-  
+
+  getProjectData() {
+    let projects = [
+      {
+        title: "Home Page",
+        subtitle: "Foo",
+        type: "react",
+      },
+      {title: "Analytics Server"},
+      {title: "Image Proxy"},
+    ];
+
+    return projects;
+  }
+
   constructor(props) {
     super(props)
     this.state = {
-      // projects: getProjectData(),
+      projects: this.getProjectData(),
       title: "Project Listing",
     }
   }
@@ -36,7 +76,7 @@ class ProjectListing extends React.Component {
         <h2 className="info-block">
           {this.state.title}
         </h2>
-        <Projects />
+        <Projects projects={this.state.projects} />
       </div>
     );
   }
