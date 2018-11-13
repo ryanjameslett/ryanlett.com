@@ -19,9 +19,9 @@ class ProjectItem extends React.Component {
   render() {
     return (
       <div className="project-item">
+        <ProjectIcon icon={this.props.data.type} />
         <div className="title">{this.props.data.title}</div>
         <div className="subtitle">{this.props.data.subtitle}</div>
-        <ProjectIcon icon={this.props.data.type} />
       </div>
     )
   }
@@ -55,8 +55,16 @@ class ProjectListing extends React.Component {
         subtitle: "Foo",
         type: "react",
       },
-      {title: "Analytics Server"},
-      {title: "Image Proxy"},
+      {
+        title: "Analytics Server",
+        subtitle: "Foo",
+        type: "php",
+      },
+      {
+        title: "Image Proxy",
+        subtitle: "Foo",
+        type: "golang",
+      },
     ];
 
     return projects;

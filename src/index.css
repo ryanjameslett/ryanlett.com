@@ -22,12 +22,20 @@ body {
     margin: 0px 0px 10px 0px;
 }
 
-.project-item .react-icon {
+.project-item .react-icon,
+.project-item .golang-icon,
+.project-item .php-icon {
     width: 50px;
     height: 50px;
-    background-color: #000;
+    background-size: 50px 50px;
 }
 
 .project-item .react-icon {
-    background: url('/icons/react-128.png');
+    background-image: url('/icons/react-128.png');
+}
+.project-item .golang-icon {
+    background-image: url('/icons/golang-490.png');
+}
+.project-item .php-icon {
+    background-image: url('/icons/php-128.png');
 }
