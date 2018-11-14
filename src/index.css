@@ -1,41 +1,62 @@
-html {
-    background-color: #3a3a46; 
-    color: #f1b23f;
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
+
 body {
+  background-color: #3a3a46; 
+  color: #f1b23f;
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
 }
 
-.page-header {
-    margin-left: 20px;
+.wrapper {
+  display: grid;
+  max-width: 940px;
+  margin: 0 20px;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 3fr;
 }
 
-.project-listing {
-    background-color: #666;
-    border-radius: 20px;
-    padding: 20px;
+header,
+aside,
+section {
+  padding: 15px 20px;
+  border-radius: 20px;
+  background-color: #666;
+}
+
+header {
+  grid-column: 1 / -1;
+  font-size: 2.5em;
+}
+
+aside {
+  grid-column: 1;
+}
+
+section.project-listing {
+  grid-column: 2;
 }
 
 .project-listing h2 {
-    margin: 0px 0px 10px 0px;
+  margin: 0px 0px 10px 0px;
 }
 
 .project-item .react-icon,
 .project-item .golang-icon,
 .project-item .php-icon {
-    width: 50px;
-    height: 50px;
-    background-size: 50px 50px;
+  width: 50px;
+  height: 50px;
+  background-size: 50px 50px;
 }
 
 .project-item .react-icon {
-    background-image: url('/icons/react-128.png');
+  background-image: url('/icons/react-128.png');
 }
 .project-item .golang-icon {
-    background-image: url('/icons/golang-490.png');
+  background-image: url('/icons/golang-490.png');
 }
 .project-item .php-icon {
-    background-image: url('/icons/php-128.png');
+  background-image: url('/icons/php-128.png');
 }

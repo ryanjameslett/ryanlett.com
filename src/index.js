@@ -5,7 +5,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-
 class ProjectIcon extends React.Component {
   render() {
     let className = this.props.icon + "-icon";
@@ -45,9 +44,7 @@ class Projects extends React.Component {
   }
 }
 
-
 class ProjectListing extends React.Component {
-
   getProjectData() {
     let projects = [
       {
@@ -74,27 +71,35 @@ class ProjectListing extends React.Component {
     super(props)
     this.state = {
       projects: this.getProjectData(),
-      title: "Project Listing",
     }
   }
 
   render() {
     return (
-      <div className="project-listing">
-        <h2 className="info-block">
-          {this.state.title}
-        </h2>
+      <section className="project-listing">
         <Projects projects={this.state.projects} />
-      </div>
+      </section>
     );
   }
 }
 
+class SideBar extends React.Component {
+  render() {
+    return (
+      <aside>
+        <div className="nav">Profile</div>
+        <div className="nav">Projects</div>
+        <div className="nav">Skills</div>
+      </aside>
+    );
+  }
+}
 
 function Page(props) {
   return (
-    <div>
-      <h1 className="page-header">RyanLett.com</h1>
+    <div className="wrapper">
+      <header className="page-header">RyanLett.com</header>
+      <SideBar />
       <ProjectListing />
     </div>
   );
