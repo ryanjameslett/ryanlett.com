@@ -1,4 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# RyanLett.com Homepage
+
+This repository contains the code I am using (or will be using) to run my new homepage.
+See, I've been concentrating on back-end system development for years now, and in doing
+so I got a bit out of practice with front-end development processes. 
+
+So a React app might be a bit of overkill for a homepage, but it presents a good
+opportunity to learn, and get back up to speed.
+
+**Goals:**
+
+* [x] Learn React
+* [ ] React Router
+* [ ] Redux
+* [x] CSS Grid
+* [ ] CSS Animations
+* [ ] Listing of skills and projects
+* [ ] Embedded demos (when possible)
+* [ ] React Documentation
+* [ ] React Unit Testing
 
 ## Available Scripts
 
