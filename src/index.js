@@ -7,7 +7,7 @@ import './index.css';
 
 class ProjectIcon extends React.Component {
   render() {
-    let className = this.props.icon + "-icon";
+    let className = `project-icon ${this.props.icon}-icon`;
     return (
       <div className={className}></div>
     );
@@ -21,6 +21,7 @@ class ProjectItem extends React.Component {
         <ProjectIcon icon={this.props.data.type} />
         <div className="title">{this.props.data.title}</div>
         <div className="subtitle">{this.props.data.subtitle}</div>
+        <div className="body">{this.props.data.body}</div>
       </div>
     )
   }
@@ -30,7 +31,7 @@ class Projects extends React.Component {
   generateProjectItems() {
     let list = [];
     for (let item of this.props.projects) {
-      list.push(<ProjectItem data={item} />)
+      list.push(<ProjectItem key={item.key} data={item} />)
     }
     return list;
   }
@@ -46,20 +47,38 @@ class Projects extends React.Component {
 
 class ProjectListing extends React.Component {
   getProjectData() {
+    const lorem = `Lorem Ipsum is simply dummy text of the printing
+                  and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since the 1500s, \
+                  when an unknown printer took a galley of type and scrambled \
+                  it to make a type specimen book. It has survived not only \
+                  five centuries, but also the leap into electronic typesetting, \
+                  remaining essentially unchanged.`;
     let projects = [
       {
+        key: "ryan-lett-home-page",
         title: "Home Page",
         subtitle: "Foo",
+        body: lorem,
         type: "react",
+        stack: [
+          "react",
+          "css-grid",
+          "semantic-html",
+        ]
       },
       {
+        key: "analytics-server",
         title: "Analytics Server",
         subtitle: "Foo",
+        body: lorem,
         type: "php",
       },
       {
+        key: "image-proxy",
         title: "Image Proxy",
         subtitle: "Foo",
+        body: lorem,
         type: "golang",
       },
     ];

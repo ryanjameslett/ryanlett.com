@@ -1,7 +1,8 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
-
 
 body {
   background-color: #3a3a46; 
@@ -12,14 +13,13 @@ body {
 
 .wrapper {
   display: grid;
-  max-width: 940px;
-  margin: 0 20px;
+  max-width: 1200px;
+  margin: auto;
   grid-gap: 10px;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 4fr;
 }
 
 header,
-aside,
 section {
   padding: 15px 20px;
   border-radius: 20px;
@@ -32,31 +32,57 @@ header {
 }
 
 aside {
+  padding: 20px 0;
   grid-column: 1;
+  font-size: 1.5em;
+  border-radius: 20px;
+  background-color: #666;
+}
+
+div.nav {
+  padding: 0 20px;
+}
+
+div.nav:hover {
+  background-color: #333;
+  color: #000;
+  cursor: pointer;
 }
 
 section.project-listing {
   grid-column: 2;
 }
 
-.project-listing h2 {
-  margin: 0px 0px 10px 0px;
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  grid-gap: 20px;
+  /* grid-auto-rows: 50px; */
 }
 
-.project-item .react-icon,
-.project-item .golang-icon,
-.project-item .php-icon {
+.project-item {
+  line-height: 1.5em;
+}
+
+.project-item .title {
+  margin: 5px 0 5px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.project-item .subtitle {
+  font-style: italic;
+  margin: 5px 0 5px 0;
+}
+
+.project-icon {
   width: 50px;
   height: 50px;
-  background-size: 50px 50px;
+  background-size: contain;
+  float: left;
+  margin-right: 5px;
 }
 
-.project-item .react-icon {
-  background-image: url('/icons/react-128.png');
-}
-.project-item .golang-icon {
-  background-image: url('/icons/golang-490.png');
-}
-.project-item .php-icon {
-  background-image: url('/icons/php-128.png');
-}
+.react-icon { background-image: url('/icons/react-128.png'); }
+.golang-icon { background-image: url('/icons/golang-490.png'); }
+.php-icon { background-image: url('/icons/php-128.png'); }
