@@ -7,7 +7,8 @@
 body {
   background-color: #3a3a46; 
   color: #f1b23f;
-  font: 14px "Century Gothic", Futura, sans-serif;
+  /* font: 14px "Century Gothic", Futura, sans-serif;  */
+  font: 14px 'Montserrat', sans-serif;
   margin: 20px;
 }
 
@@ -15,53 +16,50 @@ body {
   display: grid;
   max-width: 1200px;
   margin: auto;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 5fr;
 }
 
 header,
 section {
   padding: 15px 20px;
-  border-radius: 20px;
-  background-color: #666;
+}
+
+section {
+  border-radius: 20px 0 0 0;
+  border: 1px solid #d49c37;
+  border-right: 0;
+  border-bottom: 0;
 }
 
 header {
-  grid-column: 1 / -1;
+  grid-column: 2 / -1;
   font-size: 2.5em;
 }
 
 aside {
+  text-align: right;
   padding: 20px 0;
   grid-column: 1;
   font-size: 1.5em;
-  border-radius: 20px;
-  background-color: #666;
 }
 
 div.nav {
-  padding: 0 20px;
+  padding: 5px 20px;
 }
 
 div.nav:hover {
-  background-color: #333;
+  background-color: #d49c37;
   color: #000;
   cursor: pointer;
 }
 
-section.project-listing {
-  grid-column: 2;
-}
-
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
   grid-gap: 20px;
-  /* grid-auto-rows: 50px; */
 }
 
 .project-item {
-  line-height: 1.5em;
+  line-height: 1.8em;
 }
 
 .project-item .title {
@@ -75,9 +73,13 @@ section.project-listing {
   margin: 5px 0 5px 0;
 }
 
+.project-item .body {
+  color: #CCC;
+}
+
 .project-icon {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   background-size: contain;
   float: left;
   margin-right: 5px;
