@@ -1,0 +1,40 @@
+{
+    "projects": [
+        {
+            "key": "ryan-lett-home-page",
+            "title": "Home Page",
+            "subtitle": "ryanlett.com",
+            "body": "This is the code for my homepage and also is my front-end learning space.",
+            "type": "react",
+            "stack": [
+                "react",
+                "css-grid",
+                "semantic-html"
+            ]
+        },
+        {
+            "key": "analytics-server",
+            "title": "Analytics Server",
+            "subtitle": "",
+            "body": "Placeholder text goes here. I probably won't write this in PHP.",
+            "type": "php",
+            "stack": [
+                "php",
+                "redis",
+                "docker"
+            ]
+
+        },
+        {
+            "key": "image-proxy",
+            "title": "Image Proxy",
+            "subtitle": "High-performance image conversion service",
+            "body": "This is a service written in go. Totally not real yet.",
+            "type": "golang",
+            "stack": [
+                "golang",
+                "libvips"
+            ]
+        }
+    ]
+}
