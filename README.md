@@ -10,14 +10,15 @@ opportunity to learn, and get back up to speed.
 **Goals:**
 
 * [x] Learn React
+* [x] Listing of projects
+* [x] Load Data via AJAX
+* [x] CSS Grid
+* [ ] React Unit Testing
 * [ ] React Router
 * [ ] Redux
-* [x] CSS Grid
 * [ ] CSS Animations
-* [ ] Listing of skills and projects
 * [ ] Embedded demos (when possible)
 * [ ] React Documentation
-* [ ] React Unit Testing
 
 ## Available Scripts
 
