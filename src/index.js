@@ -14,6 +14,24 @@ class ProjectIcon extends React.Component {
   }
 }
 
+class ProjectStack extends React.Component {
+  generateProjectStackList() {
+    let list = [];
+    for (let item of this.props.stack) {
+      list.push(<div className={item}>{item}</div>)
+    }
+    return list;
+  }
+
+  render() {
+    return (
+      <div className="project-stack">
+        {this.generateProjectStackList()}
+      </div>
+    );
+  }
+}
+
 class ProjectItem extends React.Component {
   render() {
     return (
@@ -22,6 +40,7 @@ class ProjectItem extends React.Component {
         <div className="title">{this.props.data.title}</div>
         <div className="subtitle">{this.props.data.subtitle}</div>
         <div className="body">{this.props.data.body}</div>
+        <ProjectStack stack={this.props.data.stack} />
       </div>
     )
   }
@@ -66,6 +85,7 @@ class ProjectListing extends React.Component {
           });
         },
         (error) => {
+          console.log(error);
           this.setState({
             isLoaded: false,
             error

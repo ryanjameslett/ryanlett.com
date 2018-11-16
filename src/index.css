@@ -62,6 +62,11 @@ div.nav:hover {
   line-height: 1.8em;
 }
 
+.project-item .title,
+.project-item .subtitle {
+  display: inline-block;
+}
+
 .project-item .title {
   margin: 5px 0 5px 0;
   font-size: 1.2em;
@@ -70,7 +75,9 @@ div.nav:hover {
 
 .project-item .subtitle {
   font-style: italic;
-  margin: 5px 0 5px 0;
+  margin: 5px 0 5px 10px;
+  border-left: 1px solid #d49c37;
+  padding-left: 10px;
 }
 
 .project-item .body {
@@ -82,7 +89,7 @@ div.nav:hover {
   height: 80px;
   background-size: contain;
   float: left;
-  margin-right: 5px;
+  margin-right: 20px;
 }
 
 .react-icon { background-image: url('/icons/react-128.png'); }
