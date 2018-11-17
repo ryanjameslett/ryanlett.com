@@ -14,24 +14,6 @@ class ProjectIcon extends React.Component {
   }
 }
 
-class ProjectStack extends React.Component {
-  generateProjectStackList() {
-    let list = [];
-    for (let item of this.props.stack) {
-      list.push(<div className={item}>{item}</div>)
-    }
-    return list;
-  }
-
-  render() {
-    return (
-      <div className="project-stack">
-        {this.generateProjectStackList()}
-      </div>
-    );
-  }
-}
-
 class Link extends React.Component {
   render() {
     if (this.props.href) {
@@ -44,6 +26,17 @@ class Link extends React.Component {
 }
 
 class ProjectItem extends React.Component {
+  renderStack() {
+    let list = [];
+    for (let item of this.props.data.stack) {
+      list.push(<div className={item}>{item}</div>)
+    }
+    return list;
+  }
+
+  renderRepoLink() {
+  }
+
   render() {
     return (
       <div className="project-item">
@@ -52,9 +45,11 @@ class ProjectItem extends React.Component {
           <div className="title">{this.props.data.title}</div>
           <div className="subtitle">{this.props.data.subtitle}</div>
         </div>
-        <div className="body">{this.props.data.body}</div>
+        <div className="project-body">{this.props.data.body}</div>
         <div className="project-foot">
-          <ProjectStack stack={this.props.data.stack} />
+          <div className="project-stack">
+            {this.renderStack()}
+          </div>
           <Link href={this.props.data.repository} />
         </div>
       </div>
