@@ -53,6 +53,15 @@ div.nav:hover {
   cursor: pointer;
 }
 
+a {
+  color: #d49c37;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .projects {
   display: grid;
   grid-gap: 20px;
@@ -60,28 +69,48 @@ div.nav:hover {
 
 .project-item {
   line-height: 1.8em;
-}
-
-.project-item .title,
-.project-item .subtitle {
-  display: inline-block;
+  padding: 0 20px 0 20px;
+  /* border-bottom: 1px solid #d49c37; */
+  border-radius: 20px;
 }
 
 .project-item .title {
-  margin: 5px 0 5px 0;
   font-size: 1.2em;
   font-weight: bold;
 }
 
 .project-item .subtitle {
   font-style: italic;
-  margin: 5px 0 5px 10px;
+  margin-left: 10px;
   border-left: 1px solid #d49c37;
   padding-left: 10px;
 }
 
-.project-item .body {
+.project-head {
+  display: flex;
+}
+
+.project-body {
   color: #CCC;
+}
+
+.project-foot {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.project-stack {
+  display: flex;
+}
+
+.project-stack div {
+  border-right: 1px solid #d49c37;
+  padding: 0 5px 0 5px;
+}
+
+.project-stack div:last-child {
+  border-right: 0;
 }
 
 .project-icon {

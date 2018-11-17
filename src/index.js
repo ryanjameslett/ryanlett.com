@@ -32,15 +32,31 @@ class ProjectStack extends React.Component {
   }
 }
 
+class Link extends React.Component {
+  render() {
+    if (this.props.href) {
+      return (
+        <a href={this.props.href} target="_github">View Code</a>
+      );
+    }
+    return null;
+  }
+}
+
 class ProjectItem extends React.Component {
   render() {
     return (
       <div className="project-item">
         <ProjectIcon icon={this.props.data.type} />
-        <div className="title">{this.props.data.title}</div>
-        <div className="subtitle">{this.props.data.subtitle}</div>
+        <div className="project-head">
+          <div className="title">{this.props.data.title}</div>
+          <div className="subtitle">{this.props.data.subtitle}</div>
+        </div>
         <div className="body">{this.props.data.body}</div>
-        <ProjectStack stack={this.props.data.stack} />
+        <div className="project-foot">
+          <ProjectStack stack={this.props.data.stack} />
+          <Link href={this.props.data.repository} />
+        </div>
       </div>
     )
   }
