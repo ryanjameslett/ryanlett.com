@@ -1,25 +1,5 @@
 import React from 'react';
 
-class ProjectIcon extends React.Component {
-  render() {
-    let className = `project-icon ${this.props.icon}-icon`;
-    return (
-      <div className={className}></div>
-    );
-  }
-}
-
-class Link extends React.Component {
-  render() {
-    if (this.props.href) {
-      return (
-        <a href={this.props.href} target="_github">View Code</a>
-      );
-    }
-    return null;
-  }
-}
-
 class ProjectItem extends React.Component {
   renderStack() {
     let list = [];
@@ -30,12 +10,15 @@ class ProjectItem extends React.Component {
   }
 
   renderRepoLink() {
+    if (this.props.data.repository) {
+      return <a href={this.props.data.repository} target="_github">View Code</a>
+    }
   }
 
   render() {
     return (
       <div className="project-item">
-        <ProjectIcon icon={this.props.data.type} />
+        <div className={`project-icon ${this.props.data.type}-icon`}></div>
         <div className="project-head">
           <div className="title">{this.props.data.title}</div>
           <div className="subtitle">{this.props.data.subtitle}</div>
@@ -45,32 +28,14 @@ class ProjectItem extends React.Component {
           <div className="project-stack">
             {this.renderStack()}
           </div>
-          <Link href={this.props.data.repository} />
+          {this.renderRepoLink()}
         </div>
       </div>
     )
   }
 }
 
-class Projects extends React.Component {
-  generateProjectItems() {
-    let list = [];
-    for (let item of this.props.projects) {
-      list.push(<ProjectItem key={item.key} data={item} />)
-    }
-    return list;
-  }
-
-  render() {
-    return (
-      <div className="projects">
-        {this.generateProjectItems()}
-      </div>
-    )
-  }
-}
-
-class ProjectListing extends React.Component {
+export default class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -100,13 +65,21 @@ class ProjectListing extends React.Component {
       )
   }
 
+  generateProjectItems() {
+    let list = [];
+    for (let item of this.state.projects) {
+      list.push(<ProjectItem key={item.key} data={item} />)
+    }
+    return list;
+  }
+
   render() {
     return (
       <section className="project-listing">
-        <Projects projects={this.state.projects} />
+        <div className="projects">
+          {this.generateProjectItems()}
+        </div>
       </section>
     );
   }
 }
-
-export default ProjectListing
