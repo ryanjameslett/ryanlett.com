@@ -10,7 +10,8 @@
                 "react",
                 "css-grid",
                 "semantic-html"
-            ]
+            ],
+            "repository": "https://github.com/ryanjameslett/ryanlett.com"
         },
         {
             "key": "analytics-server",

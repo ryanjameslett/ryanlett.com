@@ -3,105 +3,8 @@
 //
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ProjectListing from './ProjectListing';
 import './index.css';
-
-class ProjectIcon extends React.Component {
-  render() {
-    let className = `project-icon ${this.props.icon}-icon`;
-    return (
-      <div className={className}></div>
-    );
-  }
-}
-
-class ProjectStack extends React.Component {
-  generateProjectStackList() {
-    let list = [];
-    for (let item of this.props.stack) {
-      list.push(<div className={item}>{item}</div>)
-    }
-    return list;
-  }
-
-  render() {
-    return (
-      <div className="project-stack">
-        {this.generateProjectStackList()}
-      </div>
-    );
-  }
-}
-
-class ProjectItem extends React.Component {
-  render() {
-    return (
-      <div className="project-item">
-        <ProjectIcon icon={this.props.data.type} />
-        <div className="title">{this.props.data.title}</div>
-        <div className="subtitle">{this.props.data.subtitle}</div>
-        <div className="body">{this.props.data.body}</div>
-        <ProjectStack stack={this.props.data.stack} />
-      </div>
-    )
-  }
-}
-
-class Projects extends React.Component {
-  generateProjectItems() {
-    let list = [];
-    for (let item of this.props.projects) {
-      list.push(<ProjectItem key={item.key} data={item} />)
-    }
-    return list;
-  }
-
-  render() {
-    return (
-      <div className="projects">
-        {this.generateProjectItems()}
-      </div>
-    )
-  }
-}
-
-class ProjectListing extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      error: null,
-      isLoaded: false,
-      projects: [],
-    }
-  }
-
-  componentDidMount() {
-    fetch('/data/projects.json')
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            projects: result.projects,
-          });
-        },
-        (error) => {
-          console.log(error);
-          this.setState({
-            isLoaded: false,
-            error
-          });
-        }
-      )
-  }
-
-  render() {
-    return (
-      <section className="project-listing">
-        <Projects projects={this.state.projects} />
-      </section>
-    );
-  }
-}
 
 class SideBar extends React.Component {
   render() {
@@ -131,4 +34,3 @@ ReactDOM.render(
   <Page />,
   document.getElementById('root')
 );
-
