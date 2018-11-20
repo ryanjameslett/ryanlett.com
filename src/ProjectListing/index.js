@@ -1,4 +1,5 @@
 import React from 'react';
+import './index.css';
 
 class ProjectItem extends React.Component {
   renderStack() {
